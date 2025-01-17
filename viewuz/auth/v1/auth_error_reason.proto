@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package viewuz.auth.v1;
+
+import "google/api/annotations.proto";
+
+option java_multiple_files = true;
+option java_package = "com.viewuz.auth.v1";
+
+enum AuthErrorReason {
+  AUTH_ERROR_REASON_UNSPECIFIED = 0;
+
+  // cannot be signup or signin
+  PHONE_NUMBER_INVALID = 1;
+
+  // the code is not matched or session info is invalid
+  CODE_INVALID = 2;
+}

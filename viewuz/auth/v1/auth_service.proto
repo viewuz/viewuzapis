@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package viewuz.auth.v1;
+
+import "google/api/annotations.proto";
+
+option java_multiple_files = true;
+option java_package = "com.viewuz.auth.v1";
+
+service AuthService {
+  // Sign in with phone number and verification code
+  rpc SignIn(SignInRequest) returns (TokenResponse) {
+    option (google.api.http) = {
+      post: "/v1/auth:signIn"
+      body: "*"
+    };
+  }
+
+  // Sign up with phone number and verification code
+  rpc SignUp(SignUpRequest) returns (TokenResponse) {
+    option (google.api.http) = {
+      post: "/v1/auth:signIn"
+      body: "*"
+    };
+  }
+
+  // Send Phone Verification Code
+  rpc SendVerificationCode(SendVerificationCodeRequest) returns (SendVerificationCodeResponse) {
+    option (google.api.http) = {
+      post: "/v1/auth:sendVerificationCode"
+      body: "*"
+    };
+  }
+}
+
+message SignInRequest {
+  // E164 format
+  string phone_number = 1;
+
+  // verification session info from the response of SendVerificationCode
+  string session_info = 2;
+
+  // verification code vis SMS
+  string code = 3;
+}
+
+message TokenResponse {
+  string access_token = 1;
+
+  string refresh_token = 2;
+
+  // The type of access token, which is always bearer.
+  string token_type = 3;
+}
+
+message SignUpRequest {
+  // E164 format
+  string phone_number = 1;
+
+  // verification session info from the response of SendVerificationCode
+  string session_info = 2;
+
+  // verification code vis SMS
+  string verification_code = 3;
+}
+
+message SendVerificationCodeRequest {
+  // E164 format
+  // EXAMPLE: +998901234567
+  string phone_number = 1;
+}
+
+message SendVerificationCodeResponse {
+  string session_info = 1;
+}

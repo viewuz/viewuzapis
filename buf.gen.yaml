@@ -1,0 +1,27 @@
+version: v2
+
+plugins:
+  - remote: buf.build/community/stephenh-ts-proto
+    out: gen/ts
+    opt:
+      - paths=source_relative
+      - onlyTypes=true
+      - outputEncodeMethods=false
+      - outputJsonMethods=false
+      - outputPartialMethods=false
+      - outputClientImpl=false
+      - forceLong=bigint
+      - lowerCaseServiceMethods=true
+      - exportCommonSymbols=false
+      - stringEnums=true
+  - remote: buf.build/grpc/kotlin:v1.4.1
+    out: gen/kotlin
+  - remote: buf.build/protocolbuffers/java:v24.4
+    out: gen/java
+  - remote: buf.build/grpc/java:v1.59.0
+    out: gen/java
+  - remote: buf.build/apple/swift:v1.28.2
+    out: gen/swift
+
+managed:
+  enabled: true
