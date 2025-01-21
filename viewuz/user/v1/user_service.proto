@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+package viewuz.auth.v1;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/field_mask.proto";
+import "viewuz/user/v1/user.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+
+option java_multiple_files = true;
+option java_package = "com.viewuz.user.v1";
+
+
+service UserSerivce {
+  // Get the user
+  rpc GetUser(GetUserRequest) returns (User) {
+    option (google.api.http) = {
+      get: "/v1/{name=users/*}"
+    };
+  }
+
+
+  // Update the user
+  rpc UpdateUser(UpdateUserRequest) returns (User) {
+    option (google.api.http) = {
+      patch: "/v1/{user.name=users/*}"
+      body: "user"
+    };
+  }
+
+  // Update the user profile_image_url and get uploadeable signed url
+  // must upload to real image to the signed url
+  rpc UploadProfileImage(UploadProfileImageRequest) returns (UploadProfileImageResponse) {
+    option (google.api.http) = {
+      post: "/v1/{name=users/*}:uploadProfileImage"
+      body: "*"
+    };
+  }
+
+  // Update the user phone_number
+  rpc VerifyPhoneNumber(VerifyPhoneNumberRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/v1/{name=users/*}:verifyPhoneNumber"
+      body: "*"
+    };
+  }
+}
+
+message GetUserRequest {
+  // The name of the user to get
+  string name = 1 [(google.api.field_behavior) = REQUIRED];
+}
+
+message UpdateUserRequest {
+  // The user to update.
+  // The user's `name` field is used to identify the user to update.
+  User user = 1 [(google.api.field_behavior) = REQUIRED];
+
+  // The list of fields to update.
+  google.protobuf.FieldMask update_mask = 2;
+}
+
+message UploadProfileImageRequest {
+  // The name of the user to upload profile image
+  string name = 1 [(google.api.field_behavior) = REQUIRED];
+}
+
+message UploadProfileImageResponse {
+  // The signed url to upload the profile image with PUT
+  string signed_url = 1;
+}
+
+message VerifyPhoneNumberRequest {
+  // The name of the user to verify phone number
+  string name = 1 [(google.api.field_behavior) = REQUIRED];
+
+  // The phone number to update and verify in E164 format
+  string phone_number = 2 [(google.api.field_behavior) = REQUIRED];
+
+  // you can get viewuz.auth.*.SendVerificationCode method
+  string session_info = 3 [(google.api.field_behavior) = REQUIRED];
+
+  // The user-entered verification code from an SMS sent to the user's phone.
+  string code = 4 [(google.api.field_behavior) = REQUIRED];
+}

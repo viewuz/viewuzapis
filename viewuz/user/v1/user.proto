@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package viewuz.auth.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+option java_package = "com.viewuz.user.v1";
+
+message User {
+  // Format: `users/*`
+  string name = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+
+  // The user defined profile display name
+  string display_name = 2;
+
+  // The user uploaded profile image that full image url
+  // Support resized image as follows:
+  // - {profile_image_url} (original size)
+  // - {profile_image_url}?w=160&h=160 (160x160)
+  // - {profile_image_url}?w=400&h=400 (400x400)
+  string profile_image_url  = 3 [(google.api.field_behavior) = OUTPUT_ONLY];
+
+  // The verified phone number in E164 format
+  string phone_number = 5 [(google.api.field_behavior) = OUTPUT_ONLY];
+
+  // User created time
+  google.protobuf.Timestamp created_at = 4 [(google.api.field_behavior) = OUTPUT_ONLY];
+}
+
+
+

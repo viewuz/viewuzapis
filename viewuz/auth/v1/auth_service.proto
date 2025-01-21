@@ -40,7 +40,7 @@ message SignInRequest {
   // verification session info from the response of SendVerificationCode
   string session_info = 2;
 
-  // verification code vis SMS
+  // The user-entered verification code from an SMS sent to the user's phone.
   string code = 3;
 }
 
@@ -60,8 +60,8 @@ message SignUpRequest {
   // verification session info from the response of SendVerificationCode
   string session_info = 2;
 
-  // verification code vis SMS
-  string verification_code = 3;
+  // The user-entered verification code from an SMS sent to the user's phone.
+  string code = 3;
 }
 
 message SendVerificationCodeRequest {
