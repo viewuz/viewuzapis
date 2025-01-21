@@ -31,7 +31,7 @@ struct Viewuz_Auth_V1_SignInRequest: Sendable {
   /// verification session info from the response of SendVerificationCode
   var sessionInfo: String = String()
 
-  /// verification code vis SMS
+  /// The user-entered verification code from an SMS sent to the user's phone.
   var code: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -67,8 +67,8 @@ struct Viewuz_Auth_V1_SignUpRequest: Sendable {
   /// verification session info from the response of SendVerificationCode
   var sessionInfo: String = String()
 
-  /// verification code vis SMS
-  var verificationCode: String = String()
+  /// The user-entered verification code from an SMS sent to the user's phone.
+  var code: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -198,7 +198,7 @@ extension Viewuz_Auth_V1_SignUpRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "phone_number"),
     2: .standard(proto: "session_info"),
-    3: .standard(proto: "verification_code"),
+    3: .same(proto: "code"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -209,7 +209,7 @@ extension Viewuz_Auth_V1_SignUpRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.phoneNumber) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.sessionInfo) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self.verificationCode) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.code) }()
       default: break
       }
     }
@@ -222,8 +222,8 @@ extension Viewuz_Auth_V1_SignUpRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
     if !self.sessionInfo.isEmpty {
       try visitor.visitSingularStringField(value: self.sessionInfo, fieldNumber: 2)
     }
-    if !self.verificationCode.isEmpty {
-      try visitor.visitSingularStringField(value: self.verificationCode, fieldNumber: 3)
+    if !self.code.isEmpty {
+      try visitor.visitSingularStringField(value: self.code, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -231,7 +231,7 @@ extension Viewuz_Auth_V1_SignUpRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
   static func ==(lhs: Viewuz_Auth_V1_SignUpRequest, rhs: Viewuz_Auth_V1_SignUpRequest) -> Bool {
     if lhs.phoneNumber != rhs.phoneNumber {return false}
     if lhs.sessionInfo != rhs.sessionInfo {return false}
-    if lhs.verificationCode != rhs.verificationCode {return false}
+    if lhs.code != rhs.code {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

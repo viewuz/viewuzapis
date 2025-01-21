@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package viewuz.contact.v1;
+
+import "google/protobuf/timestamp.proto";
+import "viewuz/user/v1/user.proto";
+import "google/api/field_behavior.proto";
+
+option java_multiple_files = true;
+option java_package = "com.viewuz.contact.v1";
+
+
+message Contact {
+  // Format: `users/*/contacts/*`
+  string name = 1 [(google.api.field_behavior) = IDENTIFIER];
+
+  // The user-defined custmise display name
+  string display_name = 2;
+
+  // The user who added the contact
+  viewuz.user.v1.User user = 3;
+
+  // The created time of the contract
+  google.protobuf.Timestamp created_at = 4 [(google.api.field_behavior) = OUTPUT_ONLY];
+}

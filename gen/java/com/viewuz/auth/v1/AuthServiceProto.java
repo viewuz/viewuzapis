@@ -50,37 +50,38 @@ public final class AuthServiceProto {
     java.lang.String[] descriptorData = {
       "\n!viewuz/auth/v1/auth_service.proto\022\016vie" +
       "wuz.auth.v1\032\034google/api/annotations.prot" +
-      "o\"i\n\rSignInRequest\022!\n\014phone_number\030\001 \001(\t" +
-      "R\013phoneNumber\022!\n\014session_info\030\002 \001(\tR\013ses" +
-      "sionInfo\022\022\n\004code\030\003 \001(\tR\004code\"v\n\rTokenRes" +
-      "ponse\022!\n\014access_token\030\001 \001(\tR\013accessToken" +
-      "\022#\n\rrefresh_token\030\002 \001(\tR\014refreshToken\022\035\n" +
-      "\ntoken_type\030\003 \001(\tR\ttokenType\"\202\001\n\rSignUpR" +
-      "equest\022!\n\014phone_number\030\001 \001(\tR\013phoneNumbe" +
-      "r\022!\n\014session_info\030\002 \001(\tR\013sessionInfo\022+\n\021" +
-      "verification_code\030\003 \001(\tR\020verificationCod" +
-      "e\"@\n\033SendVerificationCodeRequest\022!\n\014phon" +
-      "e_number\030\001 \001(\tR\013phoneNumber\"A\n\034SendVerif" +
-      "icationCodeResponse\022!\n\014session_info\030\001 \001(" +
-      "\tR\013sessionInfo2\363\002\n\013AuthService\022b\n\006SignIn" +
-      "\022\035.viewuz.auth.v1.SignInRequest\032\035.viewuz" +
-      ".auth.v1.TokenResponse\"\032\202\323\344\223\002\024\"\017/v1/auth" +
-      ":signIn:\001*\022b\n\006SignUp\022\035.viewuz.auth.v1.Si" +
-      "gnUpRequest\032\035.viewuz.auth.v1.TokenRespon" +
-      "se\"\032\202\323\344\223\002\024\"\017/v1/auth:signIn:\001*\022\233\001\n\024SendV" +
-      "erificationCode\022+.viewuz.auth.v1.SendVer" +
-      "ificationCodeRequest\032,.viewuz.auth.v1.Se" +
-      "ndVerificationCodeResponse\"(\202\323\344\223\002\"\"\035/v1/" +
-      "auth:sendVerificationCode:\001*B\200\001\n\022com.vie" +
-      "wuz.auth.v1B\020AuthServiceProtoP\001\242\002\003VAX\252\002\016" +
-      "Viewuz.Auth.V1\312\002\016Viewuz\\Auth\\V1\342\002\032Viewuz" +
-      "\\Auth\\V1\\GPBMetadata\352\002\020Viewuz::Auth::V1b" +
-      "\006proto3"
+      "o\032\037google/api/field_behavior.proto\"i\n\rSi" +
+      "gnInRequest\022!\n\014phone_number\030\001 \001(\tR\013phone" +
+      "Number\022!\n\014session_info\030\002 \001(\tR\013sessionInf" +
+      "o\022\022\n\004code\030\003 \001(\tR\004code\"v\n\rTokenResponse\022!" +
+      "\n\014access_token\030\001 \001(\tR\013accessToken\022#\n\rref" +
+      "resh_token\030\002 \001(\tR\014refreshToken\022\035\n\ntoken_" +
+      "type\030\003 \001(\tR\ttokenType\"i\n\rSignUpRequest\022!" +
+      "\n\014phone_number\030\001 \001(\tR\013phoneNumber\022!\n\014ses" +
+      "sion_info\030\002 \001(\tR\013sessionInfo\022\022\n\004code\030\003 \001" +
+      "(\tR\004code\"@\n\033SendVerificationCodeRequest\022" +
+      "!\n\014phone_number\030\001 \001(\tR\013phoneNumber\"A\n\034Se" +
+      "ndVerificationCodeResponse\022!\n\014session_in" +
+      "fo\030\001 \001(\tR\013sessionInfo2\363\002\n\013AuthService\022b\n" +
+      "\006SignIn\022\035.viewuz.auth.v1.SignInRequest\032\035" +
+      ".viewuz.auth.v1.TokenResponse\"\032\202\323\344\223\002\024\"\017/" +
+      "v1/auth:signIn:\001*\022b\n\006SignUp\022\035.viewuz.aut" +
+      "h.v1.SignUpRequest\032\035.viewuz.auth.v1.Toke" +
+      "nResponse\"\032\202\323\344\223\002\024\"\017/v1/auth:signIn:\001*\022\233\001" +
+      "\n\024SendVerificationCode\022+.viewuz.auth.v1." +
+      "SendVerificationCodeRequest\032,.viewuz.aut" +
+      "h.v1.SendVerificationCodeResponse\"(\202\323\344\223\002" +
+      "\"\"\035/v1/auth:sendVerificationCode:\001*B\200\001\n\022" +
+      "com.viewuz.auth.v1B\020AuthServiceProtoP\001\242\002" +
+      "\003VAX\252\002\016Viewuz.Auth.V1\312\002\016Viewuz\\Auth\\V1\342\002" +
+      "\032Viewuz\\Auth\\V1\\GPBMetadata\352\002\020Viewuz::Au" +
+      "th::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
+          com.google.api.FieldBehaviorProto.getDescriptor(),
         });
     internal_static_viewuz_auth_v1_SignInRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -99,7 +100,7 @@ public final class AuthServiceProto {
     internal_static_viewuz_auth_v1_SignUpRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_viewuz_auth_v1_SignUpRequest_descriptor,
-        new java.lang.String[] { "PhoneNumber", "SessionInfo", "VerificationCode", });
+        new java.lang.String[] { "PhoneNumber", "SessionInfo", "Code", });
     internal_static_viewuz_auth_v1_SendVerificationCodeRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_viewuz_auth_v1_SendVerificationCodeRequest_fieldAccessorTable = new
@@ -118,6 +119,7 @@ public final class AuthServiceProto {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.AnnotationsProto.getDescriptor();
+    com.google.api.FieldBehaviorProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

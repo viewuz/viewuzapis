@@ -1,15 +1,16 @@
 syntax = "proto3";
 
-package viewuz.auth.v1;
+package viewuz.user.v1;
 
 import "google/protobuf/timestamp.proto";
+import "google/api/field_behavior.proto";
 
 option java_multiple_files = true;
 option java_package = "com.viewuz.user.v1";
 
 message User {
   // Format: `users/*`
-  string name = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+  string name = 1 [(google.api.field_behavior) = IDENTIFIER];
 
   // The user defined profile display name
   string display_name = 2;

@@ -49,21 +49,21 @@ public interface SignUpRequestOrBuilder extends
 
   /**
    * <pre>
-   * verification code vis SMS
+   * The user-entered verification code from an SMS sent to the user's phone.
    * </pre>
    *
-   * <code>string verification_code = 3 [json_name = "verificationCode"];</code>
-   * @return The verificationCode.
+   * <code>string code = 3 [json_name = "code"];</code>
+   * @return The code.
    */
-  java.lang.String getVerificationCode();
+  java.lang.String getCode();
   /**
    * <pre>
-   * verification code vis SMS
+   * The user-entered verification code from an SMS sent to the user's phone.
    * </pre>
    *
-   * <code>string verification_code = 3 [json_name = "verificationCode"];</code>
-   * @return The bytes for verificationCode.
+   * <code>string code = 3 [json_name = "code"];</code>
+   * @return The bytes for code.
    */
   com.google.protobuf.ByteString
-      getVerificationCodeBytes();
+      getCodeBytes();
 }

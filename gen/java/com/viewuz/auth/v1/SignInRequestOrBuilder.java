@@ -49,7 +49,7 @@ public interface SignInRequestOrBuilder extends
 
   /**
    * <pre>
-   * verification code vis SMS
+   * The user-entered verification code from an SMS sent to the user's phone.
    * </pre>
    *
    * <code>string code = 3 [json_name = "code"];</code>
@@ -58,7 +58,7 @@ public interface SignInRequestOrBuilder extends
   java.lang.String getCode();
   /**
    * <pre>
-   * verification code vis SMS
+   * The user-entered verification code from an SMS sent to the user's phone.
    * </pre>
    *
    * <code>string code = 3 [json_name = "code"];</code>

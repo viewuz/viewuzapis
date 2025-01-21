@@ -1,12 +1,14 @@
 syntax = "proto3";
 
-package viewuz.auth.v1;
+package viewuz.user.v1;
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/field_mask.proto";
 import "viewuz/user/v1/user.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
+import "google/api/field_behavior.proto";
+
 
 option java_multiple_files = true;
 option java_package = "com.viewuz.user.v1";
@@ -33,7 +35,7 @@ service UserSerivce {
   // must upload to real image to the signed url
   rpc UploadProfileImage(UploadProfileImageRequest) returns (UploadProfileImageResponse) {
     option (google.api.http) = {
-      post: "/v1/{name=users/*}:uploadProfileImage"
+      post: "/v1/{user=users/*}:uploadProfileImage"
       body: "*"
     };
   }
@@ -41,7 +43,7 @@ service UserSerivce {
   // Update the user phone_number
   rpc VerifyPhoneNumber(VerifyPhoneNumberRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
-      post: "/v1/{name=users/*}:verifyPhoneNumber"
+      post: "/v1/{user=users/*}:verifyPhoneNumber"
       body: "*"
     };
   }
@@ -63,7 +65,7 @@ message UpdateUserRequest {
 
 message UploadProfileImageRequest {
   // The name of the user to upload profile image
-  string name = 1 [(google.api.field_behavior) = REQUIRED];
+  string user = 1 [(google.api.field_behavior) = REQUIRED];
 }
 
 message UploadProfileImageResponse {
@@ -73,7 +75,7 @@ message UploadProfileImageResponse {
 
 message VerifyPhoneNumberRequest {
   // The name of the user to verify phone number
-  string name = 1 [(google.api.field_behavior) = REQUIRED];
+  string user = 1 [(google.api.field_behavior) = REQUIRED];
 
   // The phone number to update and verify in E164 format
   string phone_number = 2 [(google.api.field_behavior) = REQUIRED];

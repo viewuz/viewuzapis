@@ -11,7 +11,7 @@ export interface SignInRequest {
   phoneNumber: string;
   /** verification session info from the response of SendVerificationCode */
   sessionInfo: string;
-  /** verification code vis SMS */
+  /** The user-entered verification code from an SMS sent to the user's phone. */
   code: string;
 }
 
@@ -27,8 +27,8 @@ export interface SignUpRequest {
   phoneNumber: string;
   /** verification session info from the response of SendVerificationCode */
   sessionInfo: string;
-  /** verification code vis SMS */
-  verificationCode: string;
+  /** The user-entered verification code from an SMS sent to the user's phone. */
+  code: string;
 }
 
 export interface SendVerificationCodeRequest {

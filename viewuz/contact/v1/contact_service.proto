@@ -1,0 +1,102 @@
+syntax = "proto3";
+
+package viewuz.contact.v1;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+import "viewuz/user/v1/user.proto";
+import "viewuz/contact/v1/contact.proto";
+import "google/api/annotations.proto";
+import "google/api/field_behavior.proto";
+
+option java_multiple_files = true;
+option java_package = "com.viewuz.contact.v1";
+
+
+service ContactService {
+  // Create the contact for the user
+  rpc CreateContact(CreateContactRequest) returns (Contact) {
+    option (google.api.http) = {
+      post: "/v1/{parent=users/*}/contacts"
+      body: "contact"
+    };
+  }
+
+  // Batch create contact for the user
+  // it's working as snyc local contacts
+  rpc BatchCreateContacts(BatchCreateContactsRequest) returns (BatchCreateContactsResponse) {
+    option (google.api.http) = {
+      post: "/v1/{parent=users/*}/contacts:batchCreate"
+      body: "*"
+    };
+  }
+
+  // List all contacts for the user
+  rpc ListContacts(ListContactsRequest) returns (ListContactsResponse) {
+    option (google.api.http) = {
+      get: "/v1/{parent=users/*}/contacts"
+    };
+  }
+}
+
+message CreateContactRequest {
+  // The user to create the contact
+  string parent = 1 [(google.api.field_behavior) = REQUIRED];
+
+  // The contact to create
+  Contact contact = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+message BatchCreateContactsRequest {
+  // The parent resource shared by all books being created.
+  // If this is set, the parent field in the CreateBookRequest messages
+  // must either be empty or match this field.
+  string parent = 1 [(google.api.field_behavior) = REQUIRED];
+
+  // The request message specifying the resources to create.
+  // A maximum of 1000 contacts can be created in a batch.
+  repeated CreateContactRequest requests = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+message BatchCreateContactsResponse {
+  // Contacts created.
+  repeated Contact contacts = 1;
+}
+
+message ListContactsRequest {
+  // The parent, which owns this collection of contacts.
+  string parent = 1 [(google.api.field_behavior) = REQUIRED];
+
+  // The maximum number of contacts to return. The service may return fewer than this value.
+  // If unspecified, at most 50 will be returned.
+  // The maximum value is 1000; values above 1000 will be coerced to 1000.
+  int32 page_size = 2;
+
+  // A page token, received from a previous `ListBooks` call.
+  // Provide this to retrieve the subsequent page.
+  // When paginating, all other parameters provided to `ListContacts` must match
+  // the call that provided the page token.
+  string page_token = 3;
+
+
+  // The order to list results by.
+  // Values should be a comma separated list of fields
+  // The default sorting order is ascending. To specify descending order for a field, users append a " desc" suffix;
+  // Subfields are specified with a . character
+  // Redundant space characters in the syntax are insignificant.
+  // Example: `display_name desc, created_at asc`
+  string order_by = 4;
+
+  // The filter to apply to list results.
+  // Reference: [https://google.aip.dev/160]
+  string filter = 5;
+}
+
+message ListContactsResponse {
+  // The contacts from the specified user.
+  repeated Contact contacts = 1;
+
+  // A token, which can be sent as `page_token` to retrieve the next page.
+  // If this field is omitted, there are no subsequent pages.
+  string next_page_token = 2;
+}

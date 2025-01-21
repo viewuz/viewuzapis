@@ -18,7 +18,7 @@ private static final long serialVersionUID = 0L;
   private SignUpRequest() {
     phoneNumber_ = "";
     sessionInfo_ = "";
-    verificationCode_ = "";
+    code_ = "";
   }
 
   @java.lang.Override
@@ -135,47 +135,47 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int VERIFICATION_CODE_FIELD_NUMBER = 3;
+  public static final int CODE_FIELD_NUMBER = 3;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object verificationCode_ = "";
+  private volatile java.lang.Object code_ = "";
   /**
    * <pre>
-   * verification code vis SMS
+   * The user-entered verification code from an SMS sent to the user's phone.
    * </pre>
    *
-   * <code>string verification_code = 3 [json_name = "verificationCode"];</code>
-   * @return The verificationCode.
+   * <code>string code = 3 [json_name = "code"];</code>
+   * @return The code.
    */
   @java.lang.Override
-  public java.lang.String getVerificationCode() {
-    java.lang.Object ref = verificationCode_;
+  public java.lang.String getCode() {
+    java.lang.Object ref = code_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      verificationCode_ = s;
+      code_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * verification code vis SMS
+   * The user-entered verification code from an SMS sent to the user's phone.
    * </pre>
    *
-   * <code>string verification_code = 3 [json_name = "verificationCode"];</code>
-   * @return The bytes for verificationCode.
+   * <code>string code = 3 [json_name = "code"];</code>
+   * @return The bytes for code.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getVerificationCodeBytes() {
-    java.lang.Object ref = verificationCode_;
+      getCodeBytes() {
+    java.lang.Object ref = code_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      verificationCode_ = b;
+      code_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -202,8 +202,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sessionInfo_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, sessionInfo_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(verificationCode_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, verificationCode_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(code_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, code_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -220,8 +220,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sessionInfo_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, sessionInfo_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(verificationCode_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, verificationCode_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(code_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, code_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -242,8 +242,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPhoneNumber())) return false;
     if (!getSessionInfo()
         .equals(other.getSessionInfo())) return false;
-    if (!getVerificationCode()
-        .equals(other.getVerificationCode())) return false;
+    if (!getCode()
+        .equals(other.getCode())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -259,8 +259,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPhoneNumber().hashCode();
     hash = (37 * hash) + SESSION_INFO_FIELD_NUMBER;
     hash = (53 * hash) + getSessionInfo().hashCode();
-    hash = (37 * hash) + VERIFICATION_CODE_FIELD_NUMBER;
-    hash = (53 * hash) + getVerificationCode().hashCode();
+    hash = (37 * hash) + CODE_FIELD_NUMBER;
+    hash = (53 * hash) + getCode().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -394,7 +394,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       phoneNumber_ = "";
       sessionInfo_ = "";
-      verificationCode_ = "";
+      code_ = "";
       return this;
     }
 
@@ -435,7 +435,7 @@ private static final long serialVersionUID = 0L;
         result.sessionInfo_ = sessionInfo_;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.verificationCode_ = verificationCode_;
+        result.code_ = code_;
       }
     }
 
@@ -493,8 +493,8 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000002;
         onChanged();
       }
-      if (!other.getVerificationCode().isEmpty()) {
-        verificationCode_ = other.verificationCode_;
+      if (!other.getCode().isEmpty()) {
+        code_ = other.code_;
         bitField0_ |= 0x00000004;
         onChanged();
       }
@@ -535,7 +535,7 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 18
             case 26: {
-              verificationCode_ = input.readStringRequireUtf8();
+              code_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000004;
               break;
             } // case 26
@@ -740,22 +740,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object verificationCode_ = "";
+    private java.lang.Object code_ = "";
     /**
      * <pre>
-     * verification code vis SMS
+     * The user-entered verification code from an SMS sent to the user's phone.
      * </pre>
      *
-     * <code>string verification_code = 3 [json_name = "verificationCode"];</code>
-     * @return The verificationCode.
+     * <code>string code = 3 [json_name = "code"];</code>
+     * @return The code.
      */
-    public java.lang.String getVerificationCode() {
-      java.lang.Object ref = verificationCode_;
+    public java.lang.String getCode() {
+      java.lang.Object ref = code_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        verificationCode_ = s;
+        code_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -763,20 +763,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * verification code vis SMS
+     * The user-entered verification code from an SMS sent to the user's phone.
      * </pre>
      *
-     * <code>string verification_code = 3 [json_name = "verificationCode"];</code>
-     * @return The bytes for verificationCode.
+     * <code>string code = 3 [json_name = "code"];</code>
+     * @return The bytes for code.
      */
     public com.google.protobuf.ByteString
-        getVerificationCodeBytes() {
-      java.lang.Object ref = verificationCode_;
+        getCodeBytes() {
+      java.lang.Object ref = code_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        verificationCode_ = b;
+        code_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -784,49 +784,49 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * verification code vis SMS
+     * The user-entered verification code from an SMS sent to the user's phone.
      * </pre>
      *
-     * <code>string verification_code = 3 [json_name = "verificationCode"];</code>
-     * @param value The verificationCode to set.
+     * <code>string code = 3 [json_name = "code"];</code>
+     * @param value The code to set.
      * @return This builder for chaining.
      */
-    public Builder setVerificationCode(
+    public Builder setCode(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      verificationCode_ = value;
+      code_ = value;
       bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * verification code vis SMS
+     * The user-entered verification code from an SMS sent to the user's phone.
      * </pre>
      *
-     * <code>string verification_code = 3 [json_name = "verificationCode"];</code>
+     * <code>string code = 3 [json_name = "code"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearVerificationCode() {
-      verificationCode_ = getDefaultInstance().getVerificationCode();
+    public Builder clearCode() {
+      code_ = getDefaultInstance().getCode();
       bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * verification code vis SMS
+     * The user-entered verification code from an SMS sent to the user's phone.
      * </pre>
      *
-     * <code>string verification_code = 3 [json_name = "verificationCode"];</code>
-     * @param value The bytes for verificationCode to set.
+     * <code>string code = 3 [json_name = "code"];</code>
+     * @param value The bytes for code to set.
      * @return This builder for chaining.
      */
-    public Builder setVerificationCodeBytes(
+    public Builder setCodeBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      verificationCode_ = value;
+      code_ = value;
       bitField0_ |= 0x00000004;
       onChanged();
       return this;
